@@ -1,0 +1,38 @@
+.bubble {
+  position: relative;
+  background: var(--bubble-bg);
+  color: var(--bubble-text);
+  padding: 20px 30px;
+  border-radius: 30px;
+  max-width: 300px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px var(--shadow);
+  animation: float 4s ease-in-out infinite;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid var(--bubble-bg);
+}
+
+.empty {
+  opacity: 0.5;
+  font-style: italic;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
