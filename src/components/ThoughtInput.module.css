@@ -36,10 +36,6 @@
   opacity: 0.6;
 }
 
-.counter.limit {
-  color: #ff4d4f;
-}
-
 .submit {
   background: var(--accent);
   color: white;

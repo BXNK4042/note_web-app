@@ -11,11 +11,10 @@ interface ThoughtInputProps {
 export const ThoughtInput = ({ onSave }: ThoughtInputProps) => {
   const [text, setText] = useState('');
   const wordCount = countWords(text);
-  const WORD_LIMIT = 50;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (text.trim() && wordCount <= WORD_LIMIT) {
+    if (text.trim()) {
       onSave(text.trim());
       setText('');
     }
@@ -31,13 +30,13 @@ export const ThoughtInput = ({ onSave }: ThoughtInputProps) => {
         onChange={(e) => setText(e.target.value)}
       />
       <div className={styles.footer}>
-        <span className={`${styles.counter} ${wordCount > WORD_LIMIT ? styles.limit : ''}`}>
-          {wordCount}/{WORD_LIMIT} words
+        <span className={styles.counter}>
+          {wordCount} {wordCount === 1 ? 'word' : 'words'}
         </span>
         <button
           type="submit"
           className={styles.submit}
-          disabled={!text.trim() || wordCount > WORD_LIMIT}
+          disabled={!text.trim()}
         >
           Update Thought
         </button>
